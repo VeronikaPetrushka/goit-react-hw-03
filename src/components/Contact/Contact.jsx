@@ -5,15 +5,15 @@ const Contact = ({ name, number }) => {
         <div className={css.ContactContainer}>
             <div className={css.UserContact}>
                 <div className={css.ContactBox}>
-                    {/* <use>
-                        <svg></svg>
-                    </use> */}
+                    <svg className={css.iconPhone} width="14" height="14">
+                        <use xlinkHref="./icons.svg#phone"></use>
+                    </svg>
                     <p className={css.UserItem}>{name}</p>
                 </div>
                 <div className={css.ContactBox}>
-                    {/* <use>
-                        <svg></svg>
-                    </use> */}
+                    <svg className={css.iconUser} width="14" height="14">
+                        <use xlinkHref="./icons.svg#user"></use>
+                    </svg>
                     <p className={css.UserItem}>{number}</p>
                 </div>
             </div>

@@ -9,7 +9,7 @@ p {
     border-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     height: 30px;
@@ -23,7 +23,7 @@ p {
 
 .ContactBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .ContactBox:not(:first-child) {
@@ -33,6 +33,17 @@ p {
 .UserItem {
     color: black;
     font-size: 10px;
+    margin-left: 4px;
+}
+
+.iconPhone {
+    stroke: black;
+    fill: black;
+}
+
+.iconUser {
+    stroke: black;
+    fill: black;
 }
 
 .ContactDeleteBtn {
