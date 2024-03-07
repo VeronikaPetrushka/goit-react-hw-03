@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import css from './ContactForm.module.css'
 
 const FeedbackSchema = Yup.object().shape({
-  username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required(),
-  userNumber: Yup.number().min(9, "Must be a valid phone number!").max(11, "Must be a valid phone number!").required(),
+  username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
+  userNumber: Yup.number().min(9, "Must be a valid phone number!").max(11, "Must be a valid phone number!").required("Required"),
 });
 
 const initialValues = {
