@@ -28,26 +28,26 @@ const App = () => {
     setFilteredContacts(filtered);
   };
 
-  // const handleAddContact = (contact) => {
-  //   const updatedContacts = [...filteredContacts, contact];
-  //   setFilteredContacts(updatedContacts);
-  // };
+  const handleAddContact = (contact) => {
+    const updatedContacts = [...filteredContacts, contact];
+    setFilteredContacts(updatedContacts);
+  };
 
-  // const handleDeleteContact = (id) => {
-  //   const updatedContacts = filteredContacts.filter((contact) => contact.id !== id);
-  //   setFilteredContacts(updatedContacts);
-  // };
+  const handleDeleteContact = (id) => {
+    const updatedContacts = filteredContacts.filter((contact) => contact.id !== id);
+    setFilteredContacts(updatedContacts);
+  };
 
   return (
     <div>
       <h1 className="PhoneBookTittle">Phonebook</h1>
       <ContactForm
-        // onAddContact={handleAddContact}
+        onAddContact={handleAddContact}
       />
       <SearchBox inputValue={inputValue} handleChange={handleChange} />
       <ContactList
         contacts={filteredContacts}
-        // onDeleteContact={handleDeleteContact}
+        onDeleteContact={handleDeleteContact}
       />
 </div>
 

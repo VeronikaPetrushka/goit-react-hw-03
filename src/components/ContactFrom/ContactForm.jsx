@@ -13,12 +13,12 @@ const initialValues = {
     userNumber:"",
 };
 
-const ContactForm = () => {
+const ContactForm = ({onAddContact}) => {
     const usernameFieldId = useId();
     const userNumberFieldId = useId();
 
     const handleSubmit = (values, actions) => {
-        console.log(values);
+        onAddContact(values);
         actions.resetForm();
     };
 
@@ -38,7 +38,7 @@ const ContactForm = () => {
 
                     <div className={css.ContactFormItem}>
                         <label htmlFor={userNumberFieldId} className={css.ContactFormLabel}>Number</label>
-                        <Field type="number" name="userNumber" id={userNumberFieldId} className={css.ContactFormInput} pattern="tel" />
+                        <Field type="text" name="userNumber" id={userNumberFieldId} className={css.ContactFormInput} pattern="tel" />
                         <ErrorMessage name="userNumber" as="span" className={css.ErrorMessage} />
                     </div>
 
