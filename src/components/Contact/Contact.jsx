@@ -1,19 +1,17 @@
 import css from './Contact.module.css'
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMdPerson } from "react-icons/io";
 
 const Contact = ({ name, number }) => {
     return (
         <div className={css.ContactContainer}>
             <div className={css.UserContact}>
                 <div className={css.ContactBox}>
-                    <svg className={css.iconPhone} width="14" height="14">
-                        <use xlinkHref="./icons.svg#phone"></use>
-                    </svg>
+                    <p><FaPhoneAlt className={css.UserIcon} size="13"/></p>
                     <p className={css.UserItem}>{name}</p>
                 </div>
                 <div className={css.ContactBox}>
-                    <svg className={css.iconUser} width="14" height="14">
-                        <use xlinkHref="./icons.svg#user"></use>
-                    </svg>
+                    <p><IoMdPerson className={css.PhoneIcon} size="13"/></p>
                     <p className={css.UserItem}>{number}</p>
                 </div>
             </div>

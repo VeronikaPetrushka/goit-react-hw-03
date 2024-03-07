@@ -24,6 +24,7 @@ p {
 .ContactBox {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .ContactBox:not(:first-child) {
@@ -33,17 +34,15 @@ p {
 .UserItem {
     color: black;
     font-size: 13px;
-    margin-left: 4px;
+    margin-left: 8px;
 }
 
-.iconPhone {
-    stroke: black;
-    fill: black;
+.UserIcon {
+    color: black;
 }
 
-.iconUser {
-    stroke: black;
-    fill: black;
+.PhoneIcon {
+    color: black;
 }
 
 .ContactDeleteBtn {
