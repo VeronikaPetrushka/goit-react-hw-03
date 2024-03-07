@@ -7,11 +7,11 @@ const Contact = ({ name, number, onDeleteContact }) => {
         <div className={css.ContactContainer}>
             <div className={css.UserContact}>
                 <div className={css.ContactBox}>
-                    <p><FaPhoneAlt className={css.UserIcon} size="13"/></p>
+                    <p><IoMdPerson className={css.PhoneIcon} size="13"/></p>
                     <p className={css.UserItem}>{name}</p>
                 </div>
                 <div className={css.ContactBox}>
-                    <p><IoMdPerson className={css.PhoneIcon} size="13"/></p>
+                    <p><FaPhoneAlt className={css.UserIcon} size="13"/></p>
                     <p className={css.UserItem}>{number}</p>
                 </div>
             </div>

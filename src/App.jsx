@@ -44,7 +44,9 @@ const App = () => {
       <ContactForm
         onAddContact={handleAddContact}
       />
-      <SearchBox inputValue={inputValue} handleChange={handleChange} />
+      <SearchBox
+        inputValue={inputValue}
+        handleChange={handleChange} />
       <ContactList
         contacts={filteredContacts}
         onDeleteContact={handleDeleteContact}
