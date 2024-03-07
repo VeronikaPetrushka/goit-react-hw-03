@@ -33,6 +33,12 @@
     background-color: transparent;
 }
 
+.ErrorMessage {
+    font-size: 6;
+    color: brown;
+    text-decoration: underline;
+}
+
 .AddContactBtn {
     display: inline-flex;
     justify-content: center;
@@ -49,6 +55,7 @@
 
 .AddContactBtn:hover,
 .AddContactBtn:focus {
-    background-color: rgb(51, 80, 225);
+    background-color: rgb(71, 99, 239);
     border-color: transparent;
+    outline: none;
 }

@@ -2,6 +2,7 @@ import { useId } from "react";
 import css from './SearchBox.module.css';
 
 const SearchBox = ({ inputValue, handleChange }) => {
+  
   const SearchBoxId = useId();
 
   const handleInputChange = (evt) => {

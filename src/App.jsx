@@ -14,18 +14,40 @@ const Contacts = [
 const App = () => {
 
   const [inputValue, setInputValue] = useState("");
+  const [filteredContacts, setFilteredContacts] = useState(Contacts);
 
-  const handleChange = (evt) => {
-        setInputValue(evt.target.value);
-    };
+  const handleChange = (value) => {
+    setInputValue(value);
+    filterContacts(value);
+  };
+  
+  const filterContacts = (value) => {
+    const filtered = Contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredContacts(filtered);
+  };
+
+  // const handleAddContact = (contact) => {
+  //   const updatedContacts = [...filteredContacts, contact];
+  //   setFilteredContacts(updatedContacts);
+  // };
+
+  // const handleDeleteContact = (id) => {
+  //   const updatedContacts = filteredContacts.filter((contact) => contact.id !== id);
+  //   setFilteredContacts(updatedContacts);
+  // };
 
   return (
     <div>
       <h1 className="PhoneBookTittle">Phonebook</h1>
-      <ContactForm />
+      <ContactForm
+        // onAddContact={handleAddContact}
+      />
       <SearchBox inputValue={inputValue} handleChange={handleChange} />
       <ContactList
-        contacts={Contacts}
+        contacts={filteredContacts}
+        // onDeleteContact={handleDeleteContact}
       />
 </div>
 
