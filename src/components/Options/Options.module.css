@@ -1,8 +1,0 @@
-.feedbackOptions {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    list-style-type: none;
-    margin: 20px auto 0;
-    justify-content: center;
-}
