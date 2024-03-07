@@ -5,7 +5,7 @@ import css from './ContactForm.module.css'
 
 const FeedbackSchema = Yup.object().shape({
   username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-  userNumber: Yup.number().min(9, "Provide a valid number").max(11, "Provide a valid number").required("Required"),
+  userNumber: Yup.number().min(9, "Must be a valid phone number").max(11, "Provide a valid number").required("Required"),
 });
 
 const initialValues = {
@@ -39,7 +39,7 @@ const ContactForm = () => {
                     <div className={css.ContactFormItem}>
                         <label htmlFor={userNumberFieldId} className={css.ContactFormLabel}>Number</label>
                         <Field type="number" name="userNumber" id={userNumberFieldId} className={css.ContactFormInput} pattern="tel" />
-                        <ErrorMessage name="userNumber" as="span" />
+                        <ErrorMessage name="userNumber" as="span" className={css.ErrorMessage} />
                     </div>
 
                     <button type="submit" className={css.AddContactBtn}>Add contact</button>
