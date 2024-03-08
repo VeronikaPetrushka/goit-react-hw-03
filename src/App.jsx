@@ -2,7 +2,7 @@ import './App.css'
 import ContactForm from './components/ContactFrom/ContactForm';
 import SearchBox from './components/SearchBox/SearchBox';
 import ContactList from './components/ContactList/ContactList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Contacts = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -15,6 +15,17 @@ const App = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [filteredContacts, setFilteredContacts] = useState(Contacts);
+
+    useEffect(() => {
+    const storedContacts = localStorage.getItem('contacts');
+    if (storedContacts) {
+      setFilteredContacts(JSON.parse(storedContacts));
+    }
+  }, []);
+
+    useEffect(() => {
+      localStorage.setItem('contacts', JSON.stringify(filteredContacts));
+    }, [filteredContacts]);
 
   const handleChange = (value) => {
     setInputValue(value);
