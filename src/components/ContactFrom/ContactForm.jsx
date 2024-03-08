@@ -5,7 +5,7 @@ import css from './ContactForm.module.css'
 
 const FeedbackSchema = Yup.object().shape({
   username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-  userNumber: Yup.number().min(9, "Must be a valid phone number").max(11, "Provide a valid number").required("Required"),
+  userNumber: Yup.string().min(9, "Must be a valid phone number").max(11, "Provide a valid number").required("Required"),
 });
 
 const initialValues = {
@@ -18,9 +18,11 @@ const ContactForm = ({onAddContact}) => {
     const userNumberFieldId = useId();
 
     const handleSubmit = (values, actions) => {
-        onAddContact(values);
+        const { username, userNumber } = values;
+        onAddContact({ name: username, number: userNumber });
         actions.resetForm();
     };
+
 
     return (
         <Formik
@@ -32,13 +34,13 @@ const ContactForm = ({onAddContact}) => {
                 <div className={css.ContactForm}>
                     <div className={css.ContactFormItem}>
                         <label htmlFor={usernameFieldId} className={css.ContactFormLabel}>Name</label>
-                        <Field type="text" name="username" id={usernameFieldId} className={css.ContactFormInput} pattern="text" />
+                        <Field type="text" name="username" id={usernameFieldId} className={css.ContactFormInput} />
                         <ErrorMessage name="username" as="span" />
                     </div>
 
                     <div className={css.ContactFormItem}>
                         <label htmlFor={userNumberFieldId} className={css.ContactFormLabel}>Number</label>
-                        <Field type="text" name="userNumber" id={userNumberFieldId} className={css.ContactFormInput} pattern="tel" />
+                        <Field type="text" name="userNumber" id={userNumberFieldId} className={css.ContactFormInput} />
                         <ErrorMessage name="userNumber" as="span" className={css.ErrorMessage} />
                     </div>
 
