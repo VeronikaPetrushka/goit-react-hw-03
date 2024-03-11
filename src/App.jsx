@@ -40,7 +40,7 @@ const App = () => {
   };
 
   const handleAddContact = (contact) => {
-    const updatedContacts = [...filteredContacts, contact];
+    const updatedContacts = [...filteredContacts, { ...contact, id: `id-${Date.now()}` }];
     setFilteredContacts(updatedContacts);
   };
 
