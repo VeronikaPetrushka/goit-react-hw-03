@@ -16,14 +16,14 @@ const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [filteredContacts, setFilteredContacts] = useState(Contacts);
 
-    useEffect(() => {
+  useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
       setFilteredContacts(JSON.parse(storedContacts));
     }
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
       localStorage.setItem('contacts', JSON.stringify(filteredContacts));
     }, [filteredContacts]);
 
