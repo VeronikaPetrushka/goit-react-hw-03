@@ -14,18 +14,20 @@ const Contacts = [
 const App = () => {
 
   const [inputValue, setInputValue] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState(Contacts);
+  const [contacts, setContacts] = useState(initialContacts);
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
-      setFilteredContacts(JSON.parse(storedContacts));
+      setContacts(JSON.parse(storedContacts));
+    } else {
+      setContacts(initialContacts);
     }
   }, []);
 
   useEffect(() => {
-      localStorage.setItem('contacts', JSON.stringify(filteredContacts));
-    }, [filteredContacts]);
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }, [contacts]);
 
   const handleChange = (value) => {
     setInputValue(value);
@@ -33,20 +35,20 @@ const App = () => {
   };
   
   const filterContacts = (value) => {
-    const filtered = Contacts.filter((contact) =>
+    const filtered = сontacts.filter((contact) =>
       contact.name.toLowerCase().includes(value.toLowerCase())
     );
-    setFilteredContacts(filtered);
+    setContacts(filtered);
   };
 
   const handleAddContact = (contact) => {
-    const updatedContacts = [...filteredContacts, { ...contact, id: `id-${Date.now()}` }];
-    setFilteredContacts(updatedContacts);
+    const updatedContacts = [...contacts, { ...contact, id: `id-${Date.now()}` }];
+    setContacts(updatedContacts);
   };
 
   const handleDeleteContact = (id) => {
-    const updatedContacts = filteredContacts.filter((contact) => contact.id !== id);
-    setFilteredContacts(updatedContacts);
+    const updatedContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(updatedContacts);
   };
 
   return (
@@ -59,7 +61,7 @@ const App = () => {
         inputValue={inputValue}
         handleChange={handleChange} />
       <ContactList
-        contacts={filteredContacts}
+        contacts={contacts}
         onDeleteContact={handleDeleteContact}
       />
 </div>
