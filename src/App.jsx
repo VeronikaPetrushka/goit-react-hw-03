@@ -14,14 +14,14 @@ const Contacts = [
 const App = () => {
 
   const [inputValue, setInputValue] = useState("");
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
       setContacts(JSON.parse(storedContacts));
     } else {
-      setContacts(initialContacts);
+      setContacts(Contacts);
     }
   }, []);
 
@@ -35,7 +35,7 @@ const App = () => {
   };
   
   const filterContacts = (value) => {
-    const filtered = сontacts.filter((contact) =>
+    const filtered = contacts.filter((contact) =>
       contact.name.toLowerCase().includes(value.toLowerCase())
     );
     setContacts(filtered);
