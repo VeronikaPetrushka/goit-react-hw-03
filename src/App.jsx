@@ -53,7 +53,7 @@ const App = () => {
       <h1 className="PhoneBookTitle">Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox inputValue={inputValue} handleChange={handleChange} />
-      <ContactList contacts={getFilteredContacts} onDeleteContact={handleDeleteContact} />
+      <ContactList contacts={getFilteredContacts()} onDeleteContact={handleDeleteContact} />
     </div>
   );
 };
