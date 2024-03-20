@@ -24,14 +24,18 @@ const App = () => {
 
   const handleChange = (value) => {
     setInputValue(value);
-    filterContacts(value);
+    // filterContacts(value);
   };
 
-  const filterContacts = (value) => {
-    const filtered = initialContacts.filter((contact) =>
-      contact.name.toLowerCase().includes(value.toLowerCase())
+  const getFilteredContacts = () => {
+    return contacts.filter((contact) =>
+    
+    contact.name.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setContacts(filtered);
+    // const filtered = initialContacts.filter((contact) =>
+    //   contact.name.toLowerCase().includes(value.toLowerCase())
+    // );
+    // setContacts(filtered);
   };
 
   const handleAddContact = (contact) => {
@@ -49,7 +53,7 @@ const App = () => {
       <h1 className="PhoneBookTitle">Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox inputValue={inputValue} handleChange={handleChange} />
-      <ContactList contacts={contacts} onDeleteContact={handleDeleteContact} />
+      <ContactList contacts={getFilteredContacts} onDeleteContact={handleDeleteContact} />
     </div>
   );
 };
