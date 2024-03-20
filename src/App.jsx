@@ -24,7 +24,6 @@ const App = () => {
 
   const handleChange = (value) => {
     setInputValue(value);
-    // filterContacts(value);
   };
 
   const getFilteredContacts = () => {
@@ -32,10 +31,6 @@ const App = () => {
     
     contact.name.toLowerCase().includes(inputValue.toLowerCase())
     );
-    // const filtered = initialContacts.filter((contact) =>
-    //   contact.name.toLowerCase().includes(value.toLowerCase())
-    // );
-    // setContacts(filtered);
   };
 
   const handleAddContact = (contact) => {
