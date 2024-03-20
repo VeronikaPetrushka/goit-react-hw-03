@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import ContactForm from './components/ContactFrom/ContactForm';
 import SearchBox from './components/SearchBox/SearchBox';
 import ContactList from './components/ContactList/ContactList';
@@ -12,37 +12,23 @@ const initialContacts = [
 ];
 
 const App = () => {
-
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [contacts, setContacts] = useState(() => {
-    const storedContacts = localStorage.getItem("contacts");
-    if (storedContacts) {
-      setContacts(JSON.parse(storedContacts));
-    } else {
-      setContacts(initialContacts);
-    }
+    const storedContacts = localStorage.getItem('contacts');
+    return storedContacts ? JSON.parse(storedContacts) : initialContacts;
   });
 
-  // useEffect(() => {
-  //   const storedContacts = localStorage.getItem('contacts');
-  //   if (storedContacts) {
-  //     setContacts(JSON.parse(storedContacts));
-  //   } else {
-  //     setContacts(Contacts);
-  //   }
-  // }, []);
-
   useEffect(() => {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }, [contacts]);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const handleChange = (value) => {
     setInputValue(value);
     filterContacts(value);
   };
-  
+
   const filterContacts = (value) => {
-    const filtered = contacts.filter((contact) =>
+    const filtered = initialContacts.filter((contact) =>
       contact.name.toLowerCase().includes(value.toLowerCase())
     );
     setContacts(filtered);
@@ -60,19 +46,11 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="PhoneBookTittle">Phonebook</h1>
-      <ContactForm
-        onAddContact={handleAddContact}
-      />
-      <SearchBox
-        inputValue={inputValue}
-        handleChange={handleChange} />
-      <ContactList
-        contacts={contacts}
-        onDeleteContact={handleDeleteContact}
-      />
-</div>
-
+      <h1 className="PhoneBookTitle">Phonebook</h1>
+      <ContactForm onAddContact={handleAddContact} />
+      <SearchBox inputValue={inputValue} handleChange={handleChange} />
+      <ContactList contacts={contacts} onDeleteContact={handleDeleteContact} />
+    </div>
   );
 };
 
